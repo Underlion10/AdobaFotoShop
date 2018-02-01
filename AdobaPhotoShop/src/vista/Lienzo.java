@@ -39,11 +39,11 @@ public class Lienzo extends JPanel{
 		super.paintComponent(g);
 		if(Stuff.click) {
 			if(Stuff.shapes.equals("cuadrado")) {
-				Cuadrado cuadrado = new Cuadrado();
+				Cuadrado cuadrado = new Cuadrado(Stuff.x, Stuff.y, Stuff.colorActual);
 				cuadrados.add(cuadrado);
 				System.out.println(x+" "+y);
 			} else if(Stuff.shapes.equals("circulo")) {
-				Circulo circulo = new Circulo(50);
+				Circulo circulo = new Circulo(50, Stuff.x, Stuff.y, Stuff.colorActual);
 				circulos.add(circulo);
 				System.out.println(x+" "+y);
 				System.out.println(circulos.size());
