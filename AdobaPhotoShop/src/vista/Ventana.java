@@ -15,9 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controlador.Mouse;
 import controlador.Performance;
 import controlador.Shape;
-import modelo.Dibujo;
 import modelo.Stuff;
 
 public class Ventana extends JFrame {
@@ -65,7 +65,7 @@ public class Ventana extends JFrame {
 		JButton botonCuadrado = new JButton("Cuadrado");
 		botonCirculo.addActionListener(new Shape(botonCirculo));
 		botonCuadrado.addActionListener(new Shape(botonCuadrado));
-		Stuff.lienzo.addMouseListener(new Dibujo());
+		Stuff.lienzo.addMouseListener(new Mouse());
 		panelEste.add(botonCuadrado);
 		panelEste.add(botonCirculo);
 		panelContainer.add(panel, BorderLayout.NORTH);

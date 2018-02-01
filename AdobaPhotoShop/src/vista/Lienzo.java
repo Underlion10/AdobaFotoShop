@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import modelo.Circulo;
 import modelo.Cuadrado;
+import modelo.Dibujo;
 import modelo.Stuff;
 
 public class Lienzo extends JPanel{
@@ -22,8 +23,9 @@ public class Lienzo extends JPanel{
 	private int x;
 	private int y;
 	
-	ArrayList<Cuadrado> cuadrados = new ArrayList<Cuadrado>();
-	ArrayList<Circulo> circulos = new ArrayList<Circulo>();
+	//ArrayList<Cuadrado> cuadrados = new ArrayList<Cuadrado>();
+	ArrayList<Dibujo> dibujos = new ArrayList<Dibujo>();
+	//ArrayList<Circulo> circulos = new ArrayList<Circulo>();
 	
 	public Lienzo() {
 		setBorder(BorderFactory.createLineBorder(new Color(70,140,210), 2, true));
@@ -39,27 +41,27 @@ public class Lienzo extends JPanel{
 		super.paintComponent(g);
 		if(Stuff.click) {
 			if(Stuff.shapes.equals("cuadrado")) {
-				Cuadrado cuadrado = new Cuadrado(Stuff.x, Stuff.y, Stuff.colorActual);
-				cuadrados.add(cuadrado);
+				Cuadrado cuadrado = new Cuadrado(Stuff.x, Stuff.y, Stuff.colorActual, 32);
+				dibujos.add(cuadrado);
 				System.out.println(x+" "+y);
 			} else if(Stuff.shapes.equals("circulo")) {
 				Circulo circulo = new Circulo(50, Stuff.x, Stuff.y, Stuff.colorActual);
-				circulos.add(circulo);
+				dibujos.add(circulo);
 				System.out.println(x+" "+y);
-				System.out.println(circulos.size());
+				System.out.println(dibujos.size());
 			}
-		}
-		
-		if(!cuadrados.isEmpty()) {
-			for(Cuadrado cuadrado: cuadrados) {
-				cuadrado.paintCuadrado(g);
+			
+			if(!dibujos.isEmpty()) {
+				for(Dibujo dibujo: dibujos) {
+					dibujo.dibujar(g);
+				}
 			}
-		}
-		
-		if(!circulos.isEmpty()) {
-			for(Circulo circulo: circulos) {
-				circulo.paintCirculo(g);
-			}
+//			
+//			if(!circulos.isEmpty()) {
+//				for(Circulo circle: circulos) {
+//					circle.paintCirculo(g);
+//				}
+//			}
 		}
 		g.dispose();
 	}

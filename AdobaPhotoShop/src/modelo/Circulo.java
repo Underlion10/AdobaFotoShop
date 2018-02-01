@@ -9,6 +9,7 @@ public class Circulo extends Dibujo {
 	private int x;
 	private int y;
 	private Color color;
+	private int width;
 	
 	
 	public Circulo(int rad, int x, int y, Color color) {
@@ -18,7 +19,7 @@ public class Circulo extends Dibujo {
 		this.color = color;
 	}
 	
-	public void paintCirculo(Graphics g) {
+	public void dibujar(Graphics g) {
 		g.setColor(color);
 		g.fillOval(x-(width/2), y-(width/2), width, width);
 	}
