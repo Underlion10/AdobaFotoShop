@@ -2,10 +2,13 @@ package controlador;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
 import modelo.Stuff;
 
-public class Mouse implements MouseListener{
+public class Mouse implements MouseListener, MouseMotionListener, MouseWheelListener{
 	
 	public void mouseClicked(MouseEvent e) {
 		Stuff.x = e.getX();
@@ -15,29 +18,27 @@ public class Mouse implements MouseListener{
 	}
 
 
-	public void mouseEntered(MouseEvent e) {
-
-		
+	public void mouseEntered(MouseEvent e) {	
 	}
-
-
-
-	public void mouseExited(MouseEvent e) {
-
-		
+	public void mouseExited(MouseEvent e) {	
 	}
-
-
-
-	public void mousePressed(MouseEvent e) {
-		
+	public void mousePressed(MouseEvent e) {	
 	}
-
-
-	
 	public void mouseReleased(MouseEvent e) {
+	}
 	
-		
+	public void mouseDragged(MouseEvent e) {
+		Stuff.x = e.getX();
+		Stuff.y = e.getY();
+		Stuff.click = true;
+		Stuff.lienzo.repaint();
 	}
 
+	public void mouseMoved(MouseEvent e) {
+		
+	}
+	
+	public void mouseWheelMoved(MouseWheelEvent e) {
+		Stuff.width += e.getWheelRotation();
+	}
 }

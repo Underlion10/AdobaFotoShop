@@ -13,5 +13,7 @@ public class Stuff {
 	public static String shapes = "cuadrado";
 	public static int x;
 	public static int y;
+	public static boolean borrar = false;
+	public static int width = 20;
 
 }

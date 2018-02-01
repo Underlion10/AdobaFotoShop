@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controlador.Borrador;
+import controlador.CreadorImagen;
 import controlador.Mouse;
 import controlador.Performance;
 import controlador.Shape;
@@ -31,6 +33,7 @@ public class Ventana extends JFrame {
 		super("Adoba FotoShop");
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
 		Container cn = getContentPane();
 		cn.setLayout(new GridLayout());
 		JPanel panelContainer = new JPanel();
@@ -45,6 +48,19 @@ public class Ventana extends JFrame {
 		JTextField textoVerde = new JTextField(3);
 		JLabel labelAzul = new JLabel("Azul");
 		JTextField textoAzul = new JTextField(3);
+		JLabel ancho = new JLabel(Stuff.width+"");
+		JButton guardadoImg = new JButton("Guardar Imagen");
+		JButton borradoImg = new JButton("Borrar Imagen");
+		guardadoImg.setPreferredSize(new Dimension(175, 25));
+		borradoImg.setPreferredSize(new Dimension(175, 25));
+		guardadoImg.addActionListener(new CreadorImagen());
+		borradoImg.addActionListener(new Borrador());
+		JPanel panelSur = new JPanel();
+		panelSur.setLayout(new FlowLayout());
+		panelSur.add(guardadoImg);
+		panelSur.add(borradoImg);
+		panelSur.setBackground(new Color(200, 200, 200));
+		panelSur.setBorder(BorderFactory.createLineBorder(new Color(150,150,150), 2, true));
 		JPanel panel = new JPanel();
 		panel.setBorder(BorderFactory.createLineBorder(Color.green, 2, true));
 		panel.setLayout(new FlowLayout());
@@ -55,6 +71,7 @@ public class Ventana extends JFrame {
 		panel.add(labelAzul);
 		panel.add(textoAzul);
 		panel.add(boton);
+		panel.add(ancho);
 		boton.addActionListener(new Performance(textoRojo, textoVerde, textoAzul));
 		//Seccion center del layout
 		//Seccion este del layout
@@ -66,11 +83,14 @@ public class Ventana extends JFrame {
 		botonCirculo.addActionListener(new Shape(botonCirculo));
 		botonCuadrado.addActionListener(new Shape(botonCuadrado));
 		Stuff.lienzo.addMouseListener(new Mouse());
+		Stuff.lienzo.addMouseMotionListener(new Mouse());
+		Stuff.lienzo.addMouseWheelListener(new Mouse());
 		panelEste.add(botonCuadrado);
 		panelEste.add(botonCirculo);
 		panelContainer.add(panel, BorderLayout.NORTH);
 		panelContainer.add(Stuff.lienzo, BorderLayout.CENTER);
 		panelContainer.add(panelEste, BorderLayout.WEST);
+		panelContainer.add(panelSur, BorderLayout.SOUTH);
 		cn.add(panelContainer);
 		pack();
 	}

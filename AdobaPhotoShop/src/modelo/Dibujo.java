@@ -6,8 +6,4 @@ public abstract class Dibujo {
 	
 	public abstract void dibujar(Graphics g);
 	
-	
-	
-	
-
 }
