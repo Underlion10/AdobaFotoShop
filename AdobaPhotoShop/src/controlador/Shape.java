@@ -19,6 +19,10 @@ public class Shape implements ActionListener{
 			Stuff.shapes = "circulo";
 		} else if(nombre.equals("Cuadrado")) {
 			Stuff.shapes = "cuadrado";
+		} else if(nombre.equals("Triangulo")) {
+			Stuff.shapes = "Triangulo";
+		} else if(nombre.equals("Goma")) {
+			Stuff.shapes = "Goma";
 		}
 		System.out.println(Stuff.shapes);
 	}
