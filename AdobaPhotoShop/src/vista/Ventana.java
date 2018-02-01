@@ -28,6 +28,8 @@ public class Ventana extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = -4601737718372115147L;
+	
+	public static JLabel ancho = new JLabel(Stuff.width+"");
 
 	public Ventana() {
 		super("Adoba FotoShop");
@@ -48,9 +50,9 @@ public class Ventana extends JFrame {
 		JTextField textoVerde = new JTextField(3);
 		JLabel labelAzul = new JLabel("Azul");
 		JTextField textoAzul = new JTextField(3);
-		JLabel ancho = new JLabel(Stuff.width+"");
 		JButton guardadoImg = new JButton("Guardar Imagen");
 		JButton borradoImg = new JButton("Borrar Imagen");
+		JLabel anchoMed = new JLabel("Ancho Pincel: ");
 		guardadoImg.setPreferredSize(new Dimension(175, 25));
 		borradoImg.setPreferredSize(new Dimension(175, 25));
 		guardadoImg.addActionListener(new CreadorImagen());
@@ -71,6 +73,7 @@ public class Ventana extends JFrame {
 		panel.add(labelAzul);
 		panel.add(textoAzul);
 		panel.add(boton);
+		panel.add(anchoMed);
 		panel.add(ancho);
 		boton.addActionListener(new Performance(textoRojo, textoVerde, textoAzul));
 		//Seccion center del layout

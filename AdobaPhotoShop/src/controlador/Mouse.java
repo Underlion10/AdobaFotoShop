@@ -7,6 +7,7 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
 import modelo.Stuff;
+import vista.Ventana;
 
 public class Mouse implements MouseListener, MouseMotionListener, MouseWheelListener{
 	
@@ -40,5 +41,10 @@ public class Mouse implements MouseListener, MouseMotionListener, MouseWheelList
 	
 	public void mouseWheelMoved(MouseWheelEvent e) {
 		Stuff.width += e.getWheelRotation();
+		
+		if(Stuff.width < 1) {
+			Stuff.width = 1;
+		}
+		Ventana.ancho.setText(Stuff.width+"");
 	}
 }
