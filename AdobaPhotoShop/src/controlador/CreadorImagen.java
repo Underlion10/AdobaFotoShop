@@ -18,7 +18,7 @@ public class CreadorImagen implements ActionListener{
 		BufferedImage img = new BufferedImage(Stuff.lienzo.getWidth(), Stuff.lienzo.getHeight(), BufferedImage.TYPE_INT_ARGB);
 		Stuff.lienzo.paint(img.getGraphics());
 		try {
-			ImageIO.write(img, "png", new File("C:\\Users\\lione\\git\\adobaPhotoshop\\AdobaPhotoShop\\src\\modelo\\guardadoImg\\" + ruta + ".png"));
+			ImageIO.write(img, "png", new File("src/modelo/guardadoImg/" + ruta + ".png"));
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Se ha producido un error");
 		}

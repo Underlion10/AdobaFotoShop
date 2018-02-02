@@ -36,7 +36,7 @@ public class Ventana extends JFrame {
 	
 	public static JLabel ancho = new JLabel(Stuff.width+"");
 	
-	Image imgCursor = new ImageIcon("C:\\Users\\lione\\git\\adobaPhotoshop\\AdobaPhotoShop\\src\\modelo\\recursos\\Cursor.png").getImage();
+	Image imgCursor = new ImageIcon("src/modelo/recursos/Cursor.png").getImage();
 	Cursor cursor = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor, new Point(0,0), "raton");
 	
 	public Ventana() {
