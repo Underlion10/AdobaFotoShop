@@ -40,7 +40,11 @@ public class Lienzo extends JPanel{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		
+		if(Stuff.borrar) {
+			Stuff.borrar = false;
+			dibujos.clear();
+			return;
+		}
 		
 		if(Stuff.click) {
 			if(Stuff.shapes.equals("cuadrado")) {
@@ -65,14 +69,7 @@ public class Lienzo extends JPanel{
 					dibujo.dibujar(g);
 				}
 			}
-			
-			if(Stuff.borrar) {
-				Stuff.borrar = false;
-				dibujos.clear();
-			}
-			
 		}
-		g.dispose();
 	}
 
 

@@ -41,6 +41,7 @@ public class Ventana extends JFrame {
 	
 	public Ventana() {
 		super("Adoba FotoShop");
+		setSize(700,700);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
